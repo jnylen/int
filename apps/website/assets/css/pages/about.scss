@@ -1,0 +1,5 @@
+.about-hero {
+        @apply bg-indigo-500;
+        clip-path: polygon(100% 0, 100% 60%, 0 99%, 0 0);
+        height: 700px;
+    }

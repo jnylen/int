@@ -1,0 +1,32 @@
+header {
+    @apply z-50;
+
+ul.menu {
+            @apply flex items-center justify-around w-1/4 text-sm pl-4;
+
+        li {
+            @apply py-1 px-3;
+
+            &.active {
+               @apply font-semibold;
+            }
+        }
+}
+
+    ul.white.menu {
+        li {
+            &:hover {
+                @apply text-indigo-800;
+            }
+        }
+    }
+    ul.dark.menu {
+
+        li {
+
+            &:hover {
+                @apply text-indigo-200;
+            }
+        }
+    }
+}

@@ -13,14 +13,32 @@ defmodule Website.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth_layout do
+    plug :put_layout, {WebsiteWeb.LayoutView, "auth.html"}
+  end
+
   scope "/", Website do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", StartController, :index
+    get "/about", AboutController, :index
+    get "/company", AboutController, :company
+    get "/item", ItemController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Website do
-  #   pipe_through :api
-  # end
+  scope "/auth", Website do
+    pipe_through [:browser, :auth_layout]
+
+    # should be #DELETE
+    # get "/logout", AuthController, :delete
+    # get "/login", AuthController, :login
+    # get "/signup", AuthController, :signup
+    # get "/forget_password", AuthController, :forget_password
+    # post "/forget_password", AuthController, :forget_password
+    # post "/identity/callback", AuthController, :callback
+
+    # get "/:provider/callback", AuthController, :callback
+    # post "/:provider/callback", AuthController, :callback
+    # get "/:provider/request", AuthController, :request
+  end
 end

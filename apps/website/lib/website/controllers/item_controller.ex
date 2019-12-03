@@ -1,4 +1,4 @@
-defmodule Website.PageController do
+defmodule Website.ItemController do
   use Website, :controller
 
   def index(conn, _params) do
