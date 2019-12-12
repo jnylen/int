@@ -120,3 +120,7 @@ config :database, Database.Repo,
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
+
+config :stripity_stripe,
+  api_key: "sk_test_RjDzKgQkhHfWPyXAODSmcCJ200of5Dn4Rk",
+  webhook_secret: "whsec_uEMv2NHb20XPlFm3PR4DgFWSnHTMv6Nm"

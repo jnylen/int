@@ -4,6 +4,10 @@
 
 /* purgecss start ignore */
 
+.colortrans {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 @import "_header.scss";
 @import "pages/about.scss";
 @import "pages/front.scss";

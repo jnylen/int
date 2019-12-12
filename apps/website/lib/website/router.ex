@@ -41,4 +41,9 @@ defmodule Website.Router do
     # post "/:provider/callback", AuthController, :callback
     # get "/:provider/request", AuthController, :request
   end
+
+  scope "/webhook", Website, as: :webhook do
+    pipe_through [:api]
+    post "/stripe", WebhookController, :stripe, as: :stripe
+  end
 end

@@ -11,7 +11,7 @@
   <ul class="flex items-center justify-end w-1/4 pr-4 text-sm">
     <li class="mr-4"><a href="/auth/login" class="hover:text-indigo-800">Logga in</a></li>
     <li>
-      <a href="/auth/signup" class="px-4 py-2 text-white bg-indigo-500 rounded hover:bg-indigo-600">Bli medlem</a>
+      <a href="/auth/signup" class="px-4 py-2 text-white bg-indigo-500 rounded colortrans hover:bg-indigo-600">Bli medlem</a>
     </li>
   </ul>
 </header>

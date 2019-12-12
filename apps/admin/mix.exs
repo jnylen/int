@@ -1,10 +1,23 @@
 defmodule Admin.MixProject do
   use Mix.Project
 
+  @name :admin
+  @version "0.1.0"
+  @deps [
+    {:phoenix, "~> 1.4.10"},
+    {:phoenix_pubsub, "~> 1.1"},
+    {:phoenix_ecto, "~> 4.0"},
+    {:phoenix_html, "~> 2.11"},
+    {:phoenix_live_reload, "~> 1.2", only: :dev},
+    {:gettext, "~> 0.11"},
+    {:jason, "~> 1.0"},
+    {:plug_cowboy, "~> 2.0"}
+  ]
+
   def project do
     [
-      app: :admin,
-      version: "0.1.0",
+      app: @name,
+      version: @version,
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
@@ -14,7 +27,7 @@ defmodule Admin.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: @deps
     ]
   end
 
@@ -31,22 +44,6 @@ defmodule Admin.MixProject do
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
-
-  # Specifies your project dependencies.
-  #
-  # Type `mix help deps` for examples and options.
-  defp deps do
-    [
-      {:phoenix, "~> 1.4.10"},
-      {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 4.0"},
-      {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
-    ]
-  end
 
   # Aliases are shortcuts or tasks specific to the current project.
   # For example, we extend the test task to create and migrate the database.
