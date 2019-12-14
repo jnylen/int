@@ -14,7 +14,7 @@ defmodule Website.Router do
   end
 
   pipeline :auth_layout do
-    plug :put_layout, {WebsiteWeb.LayoutView, "auth.html"}
+    plug :put_layout, {Website.LayoutView, "auth.html"}
   end
 
   scope "/", Website do
@@ -31,8 +31,8 @@ defmodule Website.Router do
 
     # should be #DELETE
     # get "/logout", AuthController, :delete
-    # get "/login", AuthController, :login
-    # get "/signup", AuthController, :signup
+    get "/login", AuthController, :login
+    get "/signup", AuthController, :signup
     # get "/forget_password", AuthController, :forget_password
     # post "/forget_password", AuthController, :forget_password
     # post "/identity/callback", AuthController, :callback

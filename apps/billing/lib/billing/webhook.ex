@@ -7,5 +7,7 @@ defmodule Billing.Webhook do
   Incoming webhooks
   """
   def incoming("payment", %{} = payment) do
+    payment
+    |> IO.inspect()
   end
 end

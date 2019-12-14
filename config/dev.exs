@@ -119,7 +119,8 @@ config :database, Database.Repo,
   database: "int",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: 10,
+  migration_primary_key: [name: :uuid, type: :binary_id]
 
 config :stripity_stripe,
   api_key: "sk_test_RjDzKgQkhHfWPyXAODSmcCJ200of5Dn4Rk",
