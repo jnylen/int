@@ -7,6 +7,11 @@ defmodule Website.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Website.Plugs.SetCurrentUser
+  end
+
+  pipeline :needs_to_be_authed do
+    plug Website.Plugs.AuthenicateUser
   end
 
   pipeline :api do
@@ -29,17 +34,10 @@ defmodule Website.Router do
   scope "/auth", Website do
     pipe_through [:browser, :auth_layout]
 
-    # should be #DELETE
-    # get "/logout", AuthController, :delete
+    get "/logout", AuthController, :logout
     get "/login", AuthController, :login
     get "/signup", AuthController, :signup
-    # get "/forget_password", AuthController, :forget_password
-    # post "/forget_password", AuthController, :forget_password
-    # post "/identity/callback", AuthController, :callback
-
-    # get "/:provider/callback", AuthController, :callback
-    # post "/:provider/callback", AuthController, :callback
-    # get "/:provider/request", AuthController, :request
+    post "/identity/callback", AuthController, :callback
   end
 
   scope "/webhook", Website, as: :webhook do

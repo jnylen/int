@@ -4,11 +4,11 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>int - Praktikens marknadsplats</title>
+    <title><%= assigns[:page_title] || "int - Praktikens marknadsplats" %></title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
-  <body class="h-screen font-sans text-gray-900 bg-gray-100 antialiased">
+  <body class="h-screen font-sans antialiased text-gray-900 bg-gray-100">
     <%= render(Website.PartialView, (Map.get(assigns, :header, "_dark_header.html")), assigns) %>
     <layout class="flex flex-col h-full">
       <main role="main" class="flex-1 h-full">

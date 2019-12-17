@@ -9,17 +9,6 @@
 # move said applications out of the umbrella.
 import Config
 
-config :admin,
-  ecto_repos: [Admin.Repo],
-  generators: [context_app: false]
-
-# Configures the endpoint
-config :admin, Admin.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "3VhsC8PT77UphkSJU+h7Ej2/L974Uy0+ahXMS7WZHEOAoNX02WeOGsY5oH/y3/Py",
-  render_errors: [view: Admin.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Admin.PubSub, adapter: Phoenix.PubSub.PG2]
-
 config :website,
   ecto_repos: [Website.Repo],
   generators: [context_app: false]
@@ -50,6 +39,19 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :ueberauth, Ueberauth,
+  providers: [
+    identity:
+      {Ueberauth.Strategy.Identity,
+       [
+         callback_methods: ["POST"],
+         uid_field: :email,
+         nickname_field: :email,
+         request_path: "/auth/new",
+         callback_path: "/auth/identity/callback"
+       ]}
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

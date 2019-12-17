@@ -16,7 +16,13 @@ defmodule Website.MixProject do
 
     # Umbrellas
     {:database, in_umbrella: true},
-    {:billing, in_umbrella: true}
+    {:billing, in_umbrella: true},
+
+    # Auth system
+    {:ueberauth, "~> 0.5"},
+    {:ueberauth_identity, "~> 0.2"},
+    {:comeonin, "~> 4.1"},
+    {:bcrypt_elixir, "~> 1.1"}
   ]
 
   def project do
