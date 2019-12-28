@@ -17,7 +17,7 @@ defmodule Database do
   @doc """
   Get an user by the id
   """
-  def get_user(id), do: Repo.get(Database.User, id)
+  def get_user(id), do: Repo.get(Database.User, id) |> Repo.preload([:company])
 
   @doc """
   Get an user by an email

@@ -1,16 +1,34 @@
-  <%= if @authed? do %>
-  <div class="flex items-center">
-    <div class="flex items-center justify-between px-2 py-1 text-sm cursor-pointer text-<%= @textcolor %>-dark group-hover:text-<%= @textcolor %>-darkest">
-      <img src="<%= Website.Helper.gravatar(@current_user.email) %>" class="w-8 h-8 mr-2 rounded-full">
-      <%= @current_user.name %>
-      <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-    </div>
-  </div>
+<%= if @authed? do %>
+<div class="flex items-center">
+  <%= if not is_nil(@current_user.company) do %>
+  <a
+    href="/item/new"
+    class="flex items-center justify-between px-2 py-1 text-sm cursor-pointer text-<%= @textcolor %>-dark group-hover:text-<%= @textcolor %>-darkest"
+  >
+    Skapa en annons
+  </a>
+  <% end %>
+
+  <a
+    href="/auth/logout"
+    class="flex items-center justify-between px-2 py-1 text-sm cursor-pointer text-<%= @textcolor %>-dark group-hover:text-<%= @textcolor %>-darkest"
+  >
+    Logga ut &rarr;
+  </a>
+</div>
 <% else %>
-  <ul class="flex items-center justify-end w-1/4 pr-4 text-sm">
-    <li class="mr-4"><a href="/auth/login" class="hover:text-<%= @buttoncolor %>-800">Logga in</a></li>
-    <li>
-      <a href="/auth/signup" class="px-4 py-2 text-white bg-<%= @buttoncolor %>-500 rounded colortrans hover:bg-<%= @buttoncolor %>-600">Bli medlem</a>
-    </li>
-  </ul>
+<ul class="flex items-center justify-end w-1/4 pr-4 text-sm">
+  <li class="mr-4">
+    <a href="/auth/login" class="hover:text-<%= @buttoncolor %>-800"
+      >Logga in</a
+    >
+  </li>
+  <li>
+    <a
+      href="/auth/signup"
+      class="px-4 py-2 text-white bg-<%= @buttoncolor %>-500 rounded colortrans hover:bg-<%= @buttoncolor %>-600"
+      >Bli medlem</a
+    >
+  </li>
+</ul>
 <% end %>

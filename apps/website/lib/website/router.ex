@@ -29,6 +29,8 @@ defmodule Website.Router do
     get "/about", AboutController, :index
     get "/company", AboutController, :company
     get "/item", ItemController, :index
+    get "/item/new", ItemController, :new
+    get "/item/:id", ItemController, :show
   end
 
   scope "/auth", Website do
