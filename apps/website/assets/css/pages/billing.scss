@@ -1,0 +1,21 @@
+.StripeElement {
+  height: 40px;
+
+  @apply bg-indigo-100 py-3 px-4 rounded;
+}
+
+.StripeElement--invalid {
+  @apply border-red-700;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#payment-form button {
+  @apply w-full colortrans bg-indigo-700 shadow-md rounded text-white py-3 mt-6 px-3 uppercase tracking-wide font-semibold text-xs;
+
+  &:hover {
+    @apply bg-white text-indigo-700;
+  }
+}

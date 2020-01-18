@@ -28,8 +28,12 @@ defmodule Website.Router do
     get "/", StartController, :index
     get "/about", AboutController, :index
     get "/company", AboutController, :company
+    get "/billing", BillingController, :index
+    get "/billing/success", BillingController, :success
+    get "/billing/cancel", BillingController, :cancel
     get "/item", ItemController, :index
     get "/item/new", ItemController, :new
+    post "/item/new", ItemController, :create
     get "/item/:id", ItemController, :show
   end
 
@@ -39,6 +43,7 @@ defmodule Website.Router do
     get "/logout", AuthController, :logout
     get "/login", AuthController, :login
     get "/signup", AuthController, :signup
+    get "/signup/company", AuthController, :signup_company
     post "/identity/callback", AuthController, :callback
   end
 

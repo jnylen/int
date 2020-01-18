@@ -1,8 +1,6 @@
 defmodule Database.Ad do
-  use Ecto.Schema
+  use Database.Schema
   import Ecto.Changeset
-
-  @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "ads" do
     field(:name, :string)
@@ -11,7 +9,9 @@ defmodule Database.Ad do
     field(:length, :integer)
     field(:description, :string)
 
-    belongs_to(:contact_person, Database.User)
+    belongs_to(:contact_person, Database.User, on_replace: :update)
+    belongs_to(:tag, Database.Tag, on_replace: :update)
+
     field(:contact_name, :string)
     field(:contact_email, :string)
     field(:contact_phone, :string)
@@ -27,6 +27,7 @@ defmodule Database.Ad do
       :start,
       :length,
       :description,
+      :tag_id,
       :contact_person_id,
       :contact_name,
       :contact_email,

@@ -47,5 +47,20 @@ main {
         }
       }
     }
+    .button-white {
+      @apply text-center pt-8;
+
+      span {
+        @apply block text-white italic pb-4;
+      }
+
+      a {
+        @apply colortrans bg-white text-indigo-700 shadow-md rounded py-3 px-5 uppercase tracking-wide font-semibold text-sm;
+
+        &:hover {
+          @apply bg-indigo-700 text-white;
+        }
+      }
+    }
   }
 }

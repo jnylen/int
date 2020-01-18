@@ -8,7 +8,10 @@ defmodule Website.User do
   @doc """
   Creates an user
   """
-  def create_user(%Auth{extra: %{raw_info: raw_info}, provider: :identity} = auth) do
+  def create_user(
+        %Auth{extra: %{raw_info: raw_info}, provider: :identity} = auth,
+        type \\ "student"
+      ) do
     case Database.get_user_by_email(auth.uid) do
       nil ->
         case validate_pass(raw_info) do
@@ -16,21 +19,28 @@ defmodule Website.User do
             {:error, error}
 
           {:ok, _} ->
-            {:ok, user} =
-              Database.create_user(%{
-                # Should be checked as it could be "admin"
-                type: "student",
-                name: raw_info["name"],
-                email: raw_info["email"],
-                password: Comeonin.Bcrypt.hashpwsalt(raw_info["password"])
-              })
-
-            {:ok, user}
+            Database.create_user(%{
+              type: type,
+              name: raw_info["name"],
+              email: raw_info["email"],
+              password: Comeonin.Bcrypt.hashpwsalt(raw_info["password"])
+            })
         end
 
       _ ->
         {:error, "User already exists"}
     end
+  end
+
+  @doc """
+  Creates a company
+  """
+  def create_company(%Auth{extra: %{raw_info: raw_info}, provider: :identity} = _auth) do
+    Database.create_company(%{
+      name: raw_info["company_name"],
+      logo: raw_info["logo"],
+      url: raw_info["url"]
+    })
   end
 
   @doc """

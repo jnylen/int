@@ -1,5 +1,13 @@
 .about-hero {
-        @apply bg-indigo-500;
-        clip-path: polygon(100% 0, 100% 60%, 0 99%, 0 0);
-        height: 700px;
+  @apply bg-indigo-500;
+  clip-path: polygon(100% 0, 100% 60%, 0 99%, 0 0);
+  height: 700px;
+
+  .button {
+    @apply colortrans bg-white text-indigo-700 shadow-md rounded py-3 px-5 uppercase tracking-wide font-semibold text-sm;
+
+    &:hover {
+      @apply bg-indigo-700 text-white;
     }
+  }
+}

@@ -1,5 +1,9 @@
-<section class="about-hero w-full">
+<section class="w-full about-hero">
     <div class="container mx-auto">
+        <div class="pt-8 text-white">
+            <h1 class="text-2xl font-bold">Vi hjälper dig hitta praktikplats!</h1>
 
+            <p class="pt-2 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in scelerisque lacus, sagittis aliquet mi. Morbi condimentum rutrum tortor quis sollicitudin. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc tincidunt sit amet neque feugiat consectetur. Duis ac sapien nibh. Donec finibus ante sapien, consectetur porta lorem viverra non. Etiam sagittis, ligula sit amet blandit bibendum, metus tellus molestie odio, non elementum purus ligula et velit. Phasellus vehicula consectetur tristique. Nulla hendrerit dui luctus erat volutpat, ut congue lectus condimentum. Sed vehicula ac mauris id fringilla. Nam turpis augue, auctor id lacus eu, placerat malesuada libero. </p>
+        </div>
     </div>
 </section

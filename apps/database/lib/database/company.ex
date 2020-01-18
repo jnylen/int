@@ -1,8 +1,6 @@
 defmodule Database.Company do
-  use Ecto.Schema
+  use Database.Schema
   import Ecto.Changeset
-
-  @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "companies" do
     field(:name, :string)
@@ -15,6 +13,7 @@ defmodule Database.Company do
   def changeset(company, params \\ %{}) do
     company
     |> cast(params, [:name, :logo, :url])
-    |> validate_format(:website, ~r/^http(s|):\/\//)
+    |> validate_format(:logo, ~r/^http(s|):\/\//)
+    |> validate_format(:url, ~r/^http(s|):\/\//)
   end
 end

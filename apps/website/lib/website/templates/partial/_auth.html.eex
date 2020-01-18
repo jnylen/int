@@ -1,34 +1,43 @@
 <%= if @authed? do %>
-<div class="flex items-center">
-  <%= if not is_nil(@current_user.company) do %>
-  <a
+  <div class="flex items-center">
+    <%= if not is_nil(@current_user.company) do %>
+      <%= if is_nil(@current_user.stripe_subscription_id) do %>
+        <a
+    href="/billing"
+    class="flex items-center justify-between px-2 py-1 text-sm cursor-pointer text-<%= @textcolor %>-dark group-hover:text-<%= @textcolor %>-darkest"
+  >
+          Prenumation
+        </a>
+      <% end %>
+      <%= if not is_nil(@current_user.stripe_subscription_id) do %>
+        <a
     href="/item/new"
     class="flex items-center justify-between px-2 py-1 text-sm cursor-pointer text-<%= @textcolor %>-dark group-hover:text-<%= @textcolor %>-darkest"
   >
-    Skapa en annons
-  </a>
-  <% end %>
-
-  <a
+          Skapa en annons
+        </a>
+      <% end %>
+    <% end %>
+    <a
     href="/auth/logout"
     class="flex items-center justify-between px-2 py-1 text-sm cursor-pointer text-<%= @textcolor %>-dark group-hover:text-<%= @textcolor %>-darkest"
   >
-    Logga ut &rarr;
-  </a>
-</div>
+      Logga ut &rarr;
+    </a>
+  </div>
 <% else %>
-<ul class="flex items-center justify-end w-1/4 pr-4 text-sm">
-  <li class="mr-4">
-    <a href="/auth/login" class="hover:text-<%= @buttoncolor %>-800"
+  <ul class="flex items-center justify-end w-1/4 pr-4 text-sm">
+    <li class="mr-4">
+      <a href="/auth/login" class="hover:text-<%= @buttoncolor %>-800"
       >Logga in</a
     >
-  </li>
-  <li>
-    <a
+    </li>
+    <li>
+      <a
       href="/auth/signup"
       class="px-4 py-2 text-white bg-<%= @buttoncolor %>-500 rounded colortrans hover:bg-<%= @buttoncolor %>-600"
       >Bli medlem</a
     >
-  </li>
-</ul>
+    </li>
+  </ul>
 <% end %>

@@ -1,0 +1,29 @@
+<section class="w-full about-hero">
+    <div class="container relative h-full mx-auto">
+        <div class="pt-10 pb-10 text-white">
+            <h1 class="pb-3 text-4xl font-black">Våra besökare söker praktik.</h1>
+            <h2 class="pb-3 text-3xl font-medium">Du har praktikplatser lediga.</h2>
+            <h2 class="text-3xl font-medium">Vi pekar våra besökare till ditt företag.</h2>
+        </div>
+
+        <div class="flex justify-between text-gray-800">
+            <div class="w-1/4 px-4 py-4 bg-white rounded shadow">
+                <h4 class="pb-2 text-lg font-bold">Marketing</h4>
+                <p>Vi hjälper dig att få ut ditt företag i studenters öron.</p>
+            </div>
+            <div class="w-1/4 px-4 py-4 bg-white rounded shadow">
+                <h4 class="pb-2 text-lg font-bold">Fast pris</h4>
+                <p>Du betalar ett fast pris per månad och får obegränsat med annonser.</p>
+            </div>
+            <div class="w-1/4 px-4 py-4 bg-white rounded shadow">
+                <h4 class="pb-2 text-lg font-bold">Ingen bindningstid</h4>
+                <p>Du kan säga upp prenumationen när du vill.</p>
+            </div>
+        </div>
+        <div class="pt-20 text-center">
+            <a class="button" href="/auth/signup/company">
+                Skapa konto!
+            </a>
+        </div>
+    </div>
+</section

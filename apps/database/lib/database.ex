@@ -38,4 +38,31 @@ defmodule Database do
     |> User.changeset(attrs)
     |> Repo.insert()
   end
+
+  @doc """
+  Create a company
+  """
+  def create_company(attrs) do
+    %Company{}
+    |> Company.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Create a ad
+  """
+  def create_ad(attrs) do
+    %Ad{}
+    |> Ad.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Create a tag
+  """
+  def create_tag(attrs) do
+    %Tag{}
+    |> Tag.changeset(attrs)
+    |> Repo.insert()
+  end
 end

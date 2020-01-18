@@ -6,6 +6,6 @@ defmodule Website.AboutController do
   end
 
   def company(conn, _params) do
-    render(conn, "index.html", header: "_header.html")
+    render(conn, "company.html", header: "_header.html", page_title: "Företag - int")
   end
 end
